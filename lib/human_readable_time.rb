@@ -1,17 +1,14 @@
 def human_readable_time(seconds)
   minutes = seconds / 60
-  if seconds < 60
-    "00:00:#{seconds_formatted(seconds)}"
-  else
-    "00:#{minutes(seconds)}:00"
-  end
+  seconds_remaining = seconds % 60
+    "00:#{minutes(seconds)}:#{seconds_formatted(seconds_remaining)}"
 end
 
-def seconds_formatted(seconds)
-  if seconds < 10
-    "0#{seconds}"
+def seconds_formatted(seconds_remaining)
+  if seconds_remaining < 10
+    "0#{seconds_remaining}"
   else
-    seconds
+    seconds_remaining
   end
 end
 
