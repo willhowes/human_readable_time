@@ -12,4 +12,12 @@ describe '#human_readable_time' do
   it 'will return "00:01:00" for an input of 60' do
     expect(human_readable_time(60)).to eq("00:01:00")
   end
+
+  it 'will return "00:10:00" for an input of 600' do
+    expect(human_readable_time(600)).to eq("00:10:00")
+  end
+
+  it 'will return "00:00:59" for an input of 59' do
+    expect(human_readable_time(59)).to eq('00:00:59')
+  end
 end
