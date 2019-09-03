@@ -24,4 +24,8 @@ describe '#human_readable_time' do
   it 'will return "00:59:59" for an input of 3599' do
     expect(human_readable_time(3599)).to eq("00:59:59" )
   end
+
+  it 'will return "23:59:59" for an input of 86399' do
+    expect(human_readable_time(86399)).to eq("23:59:59")
+  end
 end

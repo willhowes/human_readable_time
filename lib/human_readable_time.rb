@@ -1,8 +1,18 @@
 def human_readable_time(seconds)
-  minutes = seconds / 60
+  hours_remaining = seconds / 3600
+  minutes_remaining = seconds % 3600 / 60
   seconds_remaining = seconds % 60
-    "00:#{minutes(seconds)}:#{seconds_formatted(seconds_remaining)}"
+    "#{hours_formatted(hours_remaining)}:#{minutes(minutes_remaining)}:#{seconds_formatted(seconds_remaining)}"
 end
+
+def hours_formatted(hours_remaining)
+  if hours_remaining < 10
+    "0#{hours_remaining}"
+  else
+    hours_remaining
+  end
+end
+
 
 def seconds_formatted(seconds_remaining)
   if seconds_remaining < 10
@@ -12,11 +22,10 @@ def seconds_formatted(seconds_remaining)
   end
 end
 
-def minutes(seconds)
-  no_of_minutes = seconds / 60
-  if no_of_minutes < 10
-    "0#{no_of_minutes}"
+def minutes(minutes_remaining)
+  if minutes_remaining < 10
+    "0#{minutes_remaining}"
   else
-    no_of_minutes
+    minutes_remaining
   end
 end
